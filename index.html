@@ -1,11 +1,70 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Radja</title>
+    <title>Web sederhana radja.</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Halo! Ini website radja .</h1>
+    <nav>
+        <div class="wrapper">
+            <div class="logo"><a href=''>RadjaArdianSaputra.</a></div>
+            <div class="menu">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#tutors">Tutors</a></li>
+                    <li><a href="#partner">Partners</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="" class="tbl-biru">Sign Up</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="wrapper">
+        <section id="home">
+            <img src="https://img.freepik.com/free-vector/programming-concept-illustration_114360-1351.jpg?ga=GA1.1.1148205267.1739647252&semt=ais_hybrid"/>
+            <div class="kolom">
+                <p class="deskripsi">Belajar ngoding</p>
+                <h2>Aku Informatika</h2>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque, maxime.</p>
+                <p><a href="" class="tbl-pink">pelajari lanjut belajar</a></p>
+            </div>
+        </section>
+    </div>
+</div>
+    
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let teks = document.querySelector(".deskripsi");
+        let teks2 = document.querySelector("h2");
+        let kecepatanX = 2; 
+        let kecepatanY = 2; 
+        let posX = 100, posY = 100;
+
+        function gerak() {
+            let lebarLayar = window.innerWidth - teks.offsetWidth;
+            let tinggiLayar = window.innerHeight - teks.offsetHeight;
+
+            posX += kecepatanX;
+            posY += kecepatanY;
+
+            if (posX >= lebarLayar || posX <= 0) {
+                kecepatanX *= -1; 
+            }
+            if (posY >= tinggiLayar || posY <= 0) {
+                kecepatanY *= -1; 
+            }
+
+            teks.style.transform = `translate(${posX}px, ${posY}px)`;
+            teks2.style.transform = `translate(${posX}px, ${posY}px)`;
+
+            requestAnimationFrame(gerak);
+        }
+
+        gerak(); 
+    });
+</script>
 </body>
 </html>
